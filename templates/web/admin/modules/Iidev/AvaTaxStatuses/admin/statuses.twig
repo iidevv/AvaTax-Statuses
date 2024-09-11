@@ -1,10 +1,16 @@
 {##
- # Shipstation statuses page
+ # Avatax statuses page
  #}
-
-<div class="shipstation-statuses-page">
-  <div class="table-label">{{ t('The orders only with these statuses combinations will be Commited to AvaTax') }}</div>
-  <div class="table-value">
-    {{ widget('Iidev\\AvaTaxStatuses\\View\\ItemsList\\Model\\Statuses') }}
-  </div>
-</div>
+{% if not this.isRecordTransactions() %}
+	<div class="avatax-statuses-page">
+		<div class="table-label">{{ t('The orders only with these status combinations will be Recorded to AvaTax') }}</div>
+		<br>
+		<div class="table-value">
+			{{ widget('Iidev\\AvaTaxStatuses\\View\\ItemsList\\Model\\Statuses') }}
+		</div>
+	</div>
+{% else %}
+	<div class="warning">
+		<a href="{{ this.getAvaTaxSetupUrl()|raw }}">{{ t('Disable "Record transactions into AvaTax on order place"') }}</a>
+	</div>
+{% endif %}

@@ -1,25 +1,24 @@
 <?php
 
-namespace Iidev\AvaTaxStatuses\View\Admin;
+namespace Iidev\AvaTaxStatuses\View;
 
+use XCart\Extender\Mapping\ListChild;
 
+/**
+ * @ListChild (list="admin.center", zone="admin")
+ */
 class AvaTaxStatuses extends \XLite\View\AView
 {
     /**
-     * Return list of targets allowed for this widget
      *
      * @return array
      */
     public static function getAllowedTargets()
     {
-        $result = parent::getAllowedTargets();
-        $result[] = 'avatax_statuses';
-
-        return $result;
+        return array_merge(parent::getAllowedTargets(), ['ava_tax_statuses']);
     }
 
     /**
-     * Return templates directory name
      *
      * @return string
      */

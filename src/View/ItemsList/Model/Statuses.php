@@ -12,7 +12,7 @@ class Statuses extends \XLite\View\ItemsList\Model\Table
     {
         $list = parent::getAllowedTargets();
 
-        $list[] = 'avatax_statuses';
+        $list[] = 'ava_tax_statuses';
 
         return $list;
     }
@@ -33,22 +33,22 @@ class Statuses extends \XLite\View\ItemsList\Model\Table
 
     protected function getFormTarget()
     {
-        return static::getStatusesConfigName();
+        return 'ava_tax_statuses';
     }
 
     protected function getListNameSuffixes()
     {
-        return [static::getStatusesConfigName()];
+        return ['ava_tax_statuses'];
     }
 
     protected function getRemoveMessage($count)
     {
-        return static::t('SkinActShipStationAdvanced x items has been removed', ['count' => $count]);
+        return static::t('AvataxStatuses x items has been removed', ['count' => $count]);
     }
 
     protected function getCreateMessage($count)
     {
-        return static::t('SkinActShipStationAdvanced x items has been created', ['count' => $count]);
+        return static::t('AvataxStatuses x items has been created', ['count' => $count]);
     }
 
     protected function checkACL()
@@ -106,7 +106,7 @@ class Statuses extends \XLite\View\ItemsList\Model\Table
 
     protected function getBlankItemsListDescription()
     {
-        return static::t('SkinActShipStationAdvanced table is empty');
+        return static::t('Table is empty');
     }
 
     protected function getPanelClass()
@@ -116,12 +116,12 @@ class Statuses extends \XLite\View\ItemsList\Model\Table
 
     protected function getContainerClass()
     {
-        return parent::getContainerClass() . ' shipstation-statuses';
+        return parent::getContainerClass() . ' avatax-statuses';
     }
 
     protected function getCreateButtonLabel()
     {
-        return static::t('SkinActShipStationAdvanced add condition');
+        return static::t('Add condition');
     }
 
     /**
@@ -131,12 +131,12 @@ class Statuses extends \XLite\View\ItemsList\Model\Table
     {
         return [
             'paymentStatus' => [
-                static::COLUMN_NAME => static::t('SkinActShipStationAdvanced payment status'),
+                static::COLUMN_NAME => static::t('Payment status'),
                 static::COLUMN_CLASS => Payment::class,
                 static::COLUMN_ORDERBY => 100,
             ],
             'shippingStatus' => [
-                static::COLUMN_NAME => static::t('SkinActShipStationAdvanced shipping status'),
+                static::COLUMN_NAME => static::t('Shipping status'),
                 static::COLUMN_CLASS => Shipping::class,
                 static::COLUMN_ORDERBY => 200,
             ],
