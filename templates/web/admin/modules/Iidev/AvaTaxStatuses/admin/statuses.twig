@@ -1,0 +1,10 @@
+{##
+ # Shipstation statuses page
+ #}
+
+<div class="shipstation-statuses-page">
+  <div class="table-label">{{ t('The orders only with these statuses combinations will be Commited to AvaTax') }}</div>
+  <div class="table-value">
+    {{ widget('Iidev\\AvaTaxStatuses\\View\\ItemsList\\Model\\Statuses') }}
+  </div>
+</div>

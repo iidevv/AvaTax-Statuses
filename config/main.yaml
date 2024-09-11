@@ -1,0 +1,11 @@
+version: 5.5.0.4
+type: common
+authorName: "Ilya I"
+moduleName: "AvaTax Statuses"
+description: "This module allows transactions to be set as 'Committed' on custom order statuses."
+minorRequiredCoreVersion: 0
+dependsOn:
+  - XC-AvaTax
+incompatibleWith: {}
+showSettingsForm: true
+canDisable: true
