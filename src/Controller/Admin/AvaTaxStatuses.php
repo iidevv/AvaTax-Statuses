@@ -18,7 +18,7 @@ class AvaTaxStatuses extends \XLite\Controller\Admin\AAdmin
 
     public function isRecordTransactions()
     {
-        return \XLite\Core\Config::getInstance()->XC->AvaTax->record_transactions;
+        return \XLite\Core\Config::getInstance()->XC->AvaTax->record_transactions || \XLite\Core\Config::getInstance()->XC->AvaTax->commit;
     }
 }
 

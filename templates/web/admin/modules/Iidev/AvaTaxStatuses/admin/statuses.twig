@@ -11,6 +11,6 @@
 	</div>
 {% else %}
 	<div class="warning">
-		<a href="{{ this.getAvaTaxSetupUrl()|raw }}">{{ t('Disable "Record transactions into AvaTax on order place"') }}</a>
+		{{ t('Disable "Set transaction as Commited on order place" and "Record transactions into AvaTax on order place"') }} <a href="{{ this.getAvaTaxSetupUrl()|raw }}">Settings</a>
 	</div>
 {% endif %}

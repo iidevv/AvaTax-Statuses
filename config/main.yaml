@@ -6,6 +6,7 @@ description: "This module allows transactions to be set as 'Committed' on custom
 minorRequiredCoreVersion: 0
 dependsOn:
   - XC-AvaTax
+  - XC-CustomOrderStatuses
 incompatibleWith: {}
 showSettingsForm: true
 canDisable: true
