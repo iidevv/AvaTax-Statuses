@@ -16,8 +16,11 @@ class TaxCore extends \XC\AvaTax\Core\TaxCore
      *
      * @return array
      */
-    public function getStateTax(\XLite\Model\Order $order, $isCommitted = false)
+    public function getStateTax(\XLite\Model\Order $order, $isCommitted = false, $isEnabled = false)
     {
+        if (!$isEnabled)
+            return [];
+
         $result = [false, []];
 
         $messages = [];
@@ -36,8 +39,11 @@ class TaxCore extends \XC\AvaTax\Core\TaxCore
         return $result;
     }
 
-    public function adjustTransactionRequest(\XC\AvaTax\Model\Order $order, string $reason, string $reasonDescription = '', $isCommitted = false)
+    public function adjustTransactionRequest(\XC\AvaTax\Model\Order $order, string $reason, string $reasonDescription = '', $isCommitted = false, $isEnabled = false)
     {
+        if (!$isEnabled)
+            return;
+
         $messages = [];
         $oldOrderData = $this->getInformation($order, $messages);
         $dataProvider = new \XC\AvaTax\Core\DataProvider\Order($order);

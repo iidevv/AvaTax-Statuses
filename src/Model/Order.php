@@ -52,10 +52,12 @@ abstract class Order extends \XLite\Model\Order
             return;
 
         TaxCore::getInstance()->setFinalCalculationFlag(true);
+        
+        $isCommited = $this->getAvaTaxStatusesByOrderStatuses();
+        
+        $response = TaxCore::getInstance()->getStateTax($this, $isCommited, true);
 
-        $response = TaxCore::getInstance()->getStateTax($this, true);
-
-        if ($response[0] === false) {
+        if ($isCommited && $response[0] === false) {
             $this->setAvaTaxImported(true);
         }
     }
@@ -86,7 +88,7 @@ abstract class Order extends \XLite\Model\Order
         if ($this->getAvaTaxImported())
             return;
 
-        $response = TaxCore::getInstance()->getStateTax($order, true);
+        $response = TaxCore::getInstance()->getStateTax($order, true, true);
 
         if ($response[0] === false) {
             $this->setAvaTaxImported(true);
